@@ -1,0 +1,118 @@
+<?php
+
+// Koneksi ke database SQL
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "nama_database";
+
+// Buat koneksi
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Periksa koneksi
+if ($conn->connect_error) {
+  die("Koneksi gagal: " . $conn->connect_error);
+}
+
+// Ambil data dari database (contoh)
+$sql = "SELECT * FROM biodata WHERE id = 1"; // Ganti dengan query sesuai kebutuhan
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  $row = $result->fetch_assoc();
+  $nama = $row["nama"];
+  $birthday = $row["birthday"];
+  $website = $row["website"];
+  $phone = $row["phone"];
+  $city = $row["city"];
+  $age = $row["age"];
+  $degree = $row["degree"];
+  $email = $row["email"];
+  $freelance = $row["freelance"];
+} else {
+  echo "0 results";
+}
+$conn->close();
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Biodata <?php echo $nama; ?></title>
+  <!-- Masukkan bagian meta, CSS, dan JavaScript di sini -->
+</head>
+
+<body>
+  <header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <h1 class="logo me-auto me-lg-0"><a href="index.html"><?php echo $nama; ?></a></h1>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>biodata</h2>
+          <!-- Deskripsi -->
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <!-- Gambar -->
+            <img src="assets/img/about.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content">
+            <!-- Informasi tentang pengguna -->
+            <h3>Illustrator &amp; UI/UX Designer</h3>
+            <p class="fst-italic">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="row">
+              <div class="col-lg-6">
+                <!-- Info -->
+                <ul>
+                  <li><i class="bi bi-rounded-right"></i> <strong>Birthday:</strong> <?php echo $birthday; ?></li>
+                  <li><i class="bi bi-rounded-right"></i> <strong>Website:</strong> <?php echo $website; ?></li>
+                  <li><i class="bi bi-rounded-right"></i> <strong>Phone:</strong> <?php echo $phone; ?></li>
+                  <li><i class="bi bi-rounded-right"></i> <strong>City:</strong> <?php echo $city; ?></li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <!-- Info -->
+                <ul>
+                  <li><i class="bi bi-rounded-right"></i> <strong>Age:</strong> <?php echo $age; ?></li>
+                  <li><i class="bi bi-rounded-right"></i> <strong>Degree:</strong> <?php echo $degree; ?></li>
+                  <li><i class="bi bi-rounded-right"></i> <strong>Email:</strong> <?php echo $email; ?></li>
+                  <li><i class="bi bi-rounded-right"></i> <strong>Freelance:</strong> <?php echo $freelance; ?></li>
+                </ul>
+              </div>
+            </div>
+            <p>
+              <!-- Deskripsi -->
+              Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
+              Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span><?php echo $nama; ?></span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Saya adalah <a href="https://bootstrapmade.com/">Fazi</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Masukkan script JavaScript di sini -->
+</body>
+
+</html>
