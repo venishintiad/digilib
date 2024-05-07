@@ -171,7 +171,7 @@
 		<input type="hidden" name="tud" id="tud">
 		<div>
 			<label><p class="title">Nama</p>
-			  <input name="nama" type="text" class="span12" value="<?=$data[$i][3]?>">
+			  <input name="nama" type="text" class="span12" value="<?=$data[$i][3]?>" required="required">
 			</label>
 			<label><p class="title">Username</p>
 			  <input name="username" type="text" class="span12" value="<?=$data[$i][1]?>">
@@ -215,7 +215,7 @@
 		<input type="hidden" name="tud" id="tud">
 		<div>
 			<label><p class="title">Nama</p>
-			  <input name="nama" type="text" class="span12" value="">
+			  <input name="nama" type="text" class="span12" value="" required="required">
 			</label>
 			<label><p class="title">Username</p>
 			  <input name="username" type="text" class="span12" value="">
